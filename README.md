@@ -1,6 +1,9 @@
-## Playwright MCP
+## LamGC Playwright MCP
 
-A Model Context Protocol (MCP) server that provides browser automation capabilities using [Playwright](https://playwright.dev). This server enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.
+> This is the **LamGC Playwright BP fork**, not the official Microsoft Playwright MCP package.
+> It is developed at [LamGC/playwright-mcp](https://github.com/LamGC/playwright-mcp) and uses the companion [LamGC/playwright-bp](https://github.com/LamGC/playwright-bp) core. It may include MCP-focused and private extensions that do not exist upstream.
+
+A Model Context Protocol (MCP) server that provides browser automation capabilities using LamGC Playwright BP. It enables LLMs to interact with web pages through structured accessibility snapshots, bypassing the need for screenshots or visually-tuned models.
 
 ### Playwright MCP vs Playwright CLI
 
@@ -37,7 +40,7 @@ First, install the Playwright MCP server with your client.
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -56,7 +59,7 @@ Add via the Amp VS Code extension settings screen or by updating your settings.j
   "playwright": {
     "command": "npx",
     "args": [
-      "@playwright/mcp@latest"
+      "@lamgc/playwright-mcp@latest"
     ]
   }
 }
@@ -67,7 +70,7 @@ Add via the Amp VS Code extension settings screen or by updating your settings.j
 Add via the `amp mcp add` command below
 
 ```bash
-amp mcp add playwright -- npx @playwright/mcp@latest
+amp mcp add playwright -- npx @lamgc/playwright-mcp@latest
 ```
 
 </details>
@@ -83,7 +86,7 @@ Add via the Antigravity settings or by updating your configuration file:
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -98,7 +101,7 @@ Add via the Antigravity settings or by updating your configuration file:
 Use the Claude Code CLI to add the Playwright MCP server:
 
 ```bash
-claude mcp add playwright npx @playwright/mcp@latest
+claude mcp add playwright npx @lamgc/playwright-mcp@latest
 ```
 </details>
 
@@ -127,7 +130,7 @@ Add the following to your [`cline_mcp_settings.json`](https://docs.cline.bot/mcp
       "timeout": 30,
       "args": [
         "-y",
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ],
       "disabled": false
     }
@@ -143,7 +146,7 @@ Add the following to your [`cline_mcp_settings.json`](https://docs.cline.bot/mcp
 Use the Codex CLI to add the Playwright MCP server:
 
 ```bash
-codex mcp add playwright npx "@playwright/mcp@latest"
+codex mcp add playwright npx "@lamgc/playwright-mcp@latest"
 ```
 
 Alternatively, create or edit the configuration file `~/.codex/config.toml` and add:
@@ -151,7 +154,7 @@ Alternatively, create or edit the configuration file `~/.codex/config.toml` and 
 ```toml
 [mcp_servers.playwright]
 command = "npx"
-args = ["@playwright/mcp@latest"]
+args = ["@lamgc/playwright-mcp@latest"]
 ```
 
 For more information, see the [Codex MCP documentation](https://github.com/openai/codex/blob/main/codex-rs/config.md#mcp_servers).
@@ -179,7 +182,7 @@ Alternatively, create or edit the configuration file `~/.copilot/mcp-config.json
         "*"
       ],
       "args": [
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -199,7 +202,7 @@ For more information, see the [Copilot CLI documentation](https://docs.github.co
 
 #### Or install manually:
 
-Go to `Cursor Settings` -> `MCP` -> `Add new MCP Server`. Name to your liking, use `command` type with the command `npx @playwright/mcp@latest`. You can also verify config or add command like arguments via clicking `Edit`.
+Go to `Cursor Settings` -> `MCP` -> `Add new MCP Server`. Name to your liking, use `command` type with the command `npx @lamgc/playwright-mcp@latest`. You can also verify config or add command like arguments via clicking `Edit`.
 
 </details>
 
@@ -209,7 +212,7 @@ Go to `Cursor Settings` -> `MCP` -> `Add new MCP Server`. Name to your liking, u
 Use the Factory CLI to add the Playwright MCP server:
 
 ```bash
-droid mcp add playwright "npx @playwright/mcp@latest"
+droid mcp add playwright "npx @lamgc/playwright-mcp@latest"
 ```
 
 Alternatively, type `/mcp` within Factory droid to open an interactive UI for managing MCP servers.
@@ -234,7 +237,7 @@ Follow the MCP install [guide](https://github.com/google-gemini/gemini-cli/blob/
 
 #### Or install manually:
 
-Go to `Advanced settings` -> `Extensions` -> `Add custom extension`. Name to your liking, use type `STDIO`, and set the `command` to `npx @playwright/mcp`. Click "Add Extension".
+Go to `Advanced settings` -> `Extensions` -> `Add custom extension`. Name to your liking, use type `STDIO`, and set the `command` to `npx @lamgc/playwright-mcp@latest`. Click "Add Extension".
 </details>
 
 <details>
@@ -243,7 +246,7 @@ Go to `Advanced settings` -> `Extensions` -> `Add custom extension`. Name to you
 Use the Grok CLI to add the Playwright MCP server:
 
 ```bash
-grok mcp add playwright -- npx @playwright/mcp@latest
+grok mcp add playwright -- npx @lamgc/playwright-mcp@latest
 ```
 
 Alternatively, create or edit the configuration file `~/.grok/config.toml` and add:
@@ -251,7 +254,7 @@ Alternatively, create or edit the configuration file `~/.grok/config.toml` and a
 ```toml
 [mcp_servers.playwright]
 command = "npx"
-args = ["@playwright/mcp@latest"]
+args = ["@lamgc/playwright-mcp@latest"]
 ```
 
 For more information, see the [Grok MCP documentation](https://docs.x.ai/build/features/mcp-servers).
@@ -276,7 +279,7 @@ Alternatively, add to `.junie/mcp/mcp.json`:
       "command": "npx",
       "args": [
         "-y",
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -300,7 +303,7 @@ Follow the MCP Servers [documentation](https://kiro.dev/docs/mcp/). For example 
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -333,7 +336,7 @@ Follow the MCP Servers [documentation](https://opencode.ai/docs/mcp-servers/). F
       "type": "local",
       "command": [
         "npx",
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ],
       "enabled": true
     }
@@ -364,7 +367,7 @@ Follow the MCP install [guide](https://code.visualstudio.com/docs/copilot/chat/m
 
 ```bash
 # For VS Code
-code --add-mcp '{"name":"playwright","command":"npx","args":["@playwright/mcp@latest"]}'
+code --add-mcp '{"name":"playwright","command":"npx","args":["@lamgc/playwright-mcp@latest"]}'
 ```
 
 After installation, the Playwright MCP server will be available for use with your GitHub Copilot agent in VS Code.
@@ -382,7 +385,7 @@ Alternatively, use the slash command `/add-mcp` in the Warp prompt and paste the
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest"
+        "@lamgc/playwright-mcp@latest"
       ]
     }
   }
@@ -493,7 +496,7 @@ state [here](https://playwright.dev/docs/auth).
     "playwright": {
       "command": "npx",
       "args": [
-        "@playwright/mcp@latest",
+        "@lamgc/playwright-mcp@latest",
         "--isolated",
         "--storage-state={path/to/storage.json}"
       ]
@@ -504,7 +507,23 @@ state [here](https://playwright.dev/docs/auth).
 
 **Browser Extension**
 
-The Playwright MCP Chrome Extension allows you to connect to existing browser tabs and leverage your logged-in sessions and browser state. See [microsoft/playwright › packages/extension](https://github.com/microsoft/playwright/tree/main/packages/extension#readme) for installation and setup instructions.
+The Playwright MCP Chrome Extension allows you to connect to existing browser tabs and leverage your logged-in sessions and browser state. See [LamGC/playwright-bp › packages/extension](https://github.com/LamGC/playwright-bp/tree/main/packages/extension#readme) for installation and setup instructions.
+
+**Dynamic CDP connections (LamGC extension)**
+
+With the `cdp` capability enabled, an agent can use `browser_cdp_connect` to attach to a supplied Chromium CDP WebSocket URL or HTTP endpoint and create a new page. Connections are scoped to the MCP client. `attached` mode uses the remote browser's default context; `isolated` creates an owned incognito context that is closed on disconnect. Dynamic connections allow loopback endpoints by default; explicitly allow remote endpoints in server configuration when needed.
+
+```json
+{
+  "capabilities": ["core", "cdp"],
+  "cdp": {
+    "allowDynamicConnect": true,
+    "allowedEndpoints": ["https://browser.example.internal"],
+    "defaultMode": "isolated",
+    "maxConnectionsPerClient": 4
+  }
+}
+```
 
 ### Initial state
 
@@ -541,7 +560,7 @@ The Playwright MCP server can be configured using a JSON configuration file. You
 using the `--config` command line option:
 
 ```bash
-npx @playwright/mcp@latest --config path/to/config.json
+npx @lamgc/playwright-mcp@latest --config path/to/config.json
 ```
 
 <details>
@@ -780,7 +799,7 @@ When running headed browser on system w/o display or from worker processes of th
 run the MCP server from environment with the DISPLAY and pass the `--port` flag to enable HTTP transport.
 
 ```bash
-npx @playwright/mcp@latest --port 8931
+npx @lamgc/playwright-mcp@latest --port 8931
 ```
 
 And then in MCP client config, set the `url` to the HTTP endpoint:
@@ -802,14 +821,18 @@ Playwright MCP is **not** a security boundary. See [MCP Security Best Practices]
 <details>
 <summary><b>Docker</b></summary>
 
-**NOTE:** The Docker implementation only supports headless chromium at the moment.
+**NOTE:** The Docker implementation only supports headless chromium at the moment. LamGC does not publish an image to Microsoft's container registry; build the local image once before using these examples.
+
+```bash
+docker build -t lamgc/playwright-mcp:local .
+```
 
 ```js
 {
   "mcpServers": {
     "playwright": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "--init", "--pull=always", "mcr.microsoft.com/playwright/mcp"]
+      "args": ["run", "-i", "--rm", "--init", "lamgc/playwright-mcp:local"]
     }
   }
 }
@@ -818,11 +841,11 @@ Playwright MCP is **not** a security boundary. See [MCP Security Best Practices]
 Or If you prefer to run the container as a long-lived service instead of letting the MCP client spawn it, use:
 
 ```
-docker run -d -i --rm --init --pull=always \
+docker run -d -i --rm --init \
   --entrypoint node \
   --name playwright \
   -p 8931:8931 \
-  mcr.microsoft.com/playwright/mcp \
+  lamgc/playwright-mcp:local \
   /app/cli.js --headless --browser chromium --no-sandbox --port 8931 --host 0.0.0.0
 ```
 
@@ -831,7 +854,7 @@ The server will listen on host port **8931** and can be reached by any MCP clien
 You can build the Docker image yourself.
 
 ```
-docker build -t mcr.microsoft.com/playwright/mcp .
+docker build -t lamgc/playwright-mcp:local .
 ```
 </details>
 
@@ -841,7 +864,7 @@ docker build -t mcr.microsoft.com/playwright/mcp .
 ```js
 import http from 'http';
 
-import { createConnection } from '@playwright/mcp';
+import { createConnection } from '@lamgc/playwright-mcp';
 import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js';
 
 http.createServer(async (req, res) => {

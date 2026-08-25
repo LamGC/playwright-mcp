@@ -1,27 +1,27 @@
 {
-  "name": "@playwright/mcp",
+  "name": "@lamgc/playwright-mcp",
   "version": "0.0.79",
-  "description": "Playwright Tools for MCP",
+  "description": "LamGC Playwright BP tools for MCP",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microsoft/playwright-mcp.git"
+    "url": "git+https://github.com/LamGC/playwright-mcp.git"
   },
-  "homepage": "https://playwright.dev",
+  "homepage": "https://github.com/LamGC/playwright-mcp",
   "engines": {
     "node": ">=18"
   },
   "author": {
-    "name": "Microsoft Corporation"
+    "name": "LamGC"
   },
   "license": "Apache-2.0",
-  "mcpName": "io.github.microsoft/playwright-mcp",
+  "mcpName": "io.github.lamgc/playwright-mcp",
   "scripts": {
     "lint": "node update-readme.js",
-    "test": "playwright test",
-    "ctest": "playwright test --project=chrome",
-    "ftest": "playwright test --project=firefox",
-    "wtest": "playwright test --project=webkit",
-    "dtest": "MCP_IN_DOCKER=1 playwright test --project=chromium-docker",
+    "test": "node ./node_modules/@playwright/test/cli.js test",
+    "ctest": "node ./node_modules/@playwright/test/cli.js test --project=chrome",
+    "ftest": "node ./node_modules/@playwright/test/cli.js test --project=firefox",
+    "wtest": "node ./node_modules/@playwright/test/cli.js test --project=webkit",
+    "dtest": "MCP_IN_DOCKER=1 node ./node_modules/@playwright/test/cli.js test --project=chromium-docker",
     "build": "echo OK",
     "npm-publish": "npm run lint && npm run test && npm publish",
     "docker-build": "docker build --no-cache -t playwright-mcp-dev:latest .",
@@ -37,8 +37,8 @@
     }
   },
   "dependencies": {
-    "playwright": "1.63.0-alpha-2026-08-05",
-    "playwright-core": "1.63.0-alpha-2026-08-05"
+    "@lamgc/playwright": "1.63.0-next.2",
+    "@lamgc/playwright-core": "1.63.0-next.2"
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.25.2",

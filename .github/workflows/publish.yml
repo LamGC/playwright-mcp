@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org/
+      - run: npm install --global npm@latest
       - run: npm ci
       - name: Set release version
         run: |

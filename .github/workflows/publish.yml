@@ -28,7 +28,9 @@ jobs:
       - run: npm ci
       - name: Set release version
         run: |
-          npm version ${{ inputs.version }} --no-git-tag-version
+          if [ "$(node -p \"require('./package.json').version\")" != "${{ inputs.version }}" ]; then
+            npm version ${{ inputs.version }} --no-git-tag-version
+          fi
           node -e "const fs=require('fs'); const server=require('./server.json'); server.version=require('./package.json').version; server.packages.forEach(p => p.version=server.version); fs.writeFileSync('server.json', JSON.stringify(server, null, 2) + '\\n');"
       - run: npm run lint
       - run: npm run ctest

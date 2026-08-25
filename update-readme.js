@@ -20,7 +20,7 @@ const fs = require('fs')
 const path = require('path')
 const { execSync } = require('child_process');
 
-const { tools } = require('playwright-core/lib/coreBundle');
+const { tools } = require('@lamgc/playwright-core/lib/coreBundle');
 
 const capabilities = /** @type {Record<string, string>} */ ({
   'core-navigation': 'Core automation',
@@ -35,6 +35,7 @@ const capabilities = /** @type {Record<string, string>} */ ({
   'vision': 'Coordinate-based',
   'pdf': 'PDF generation',
   'testing': 'Test assertions',
+  'cdp': 'Dynamic CDP connections',
 });
 
 const knownCapabilities = new Set(Object.keys(capabilities));

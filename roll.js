@@ -3,12 +3,12 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 function copyConfig() {
-  const src = path.join(__dirname, '..', 'playwright', 'packages', 'playwright-core', 'src', 'tools', 'mcp', 'config.d.ts');
+  const src = path.join(__dirname, '..', 'playwright-bp', 'packages', 'playwright-core', 'src', 'tools', 'mcp', 'config.d.ts');
   const dst = path.join(__dirname, 'config.d.ts');
   let content = fs.readFileSync(src, 'utf-8');
   content = content.replace(
     "import type * as playwright from 'playwright-core';",
-    "import type * as playwright from 'playwright';"
+    "import type * as playwright from '@lamgc/playwright';"
   );
   fs.writeFileSync(dst, content);
   console.log(`Copied config.d.ts from ${src} to ${dst}`);
@@ -19,7 +19,7 @@ function updatePlaywrightVersion(version) {
   const json = JSON.parse(fs.readFileSync(file, 'utf-8'));
   let updated = false;
   for (const section of ['dependencies', 'devDependencies']) {
-    for (const pkg of ['@playwright/test', 'playwright', 'playwright-core']) {
+    for (const pkg of ['@lamgc/playwright', '@lamgc/playwright-core']) {
       if (json[section]?.[pkg]) {
         json[section][pkg] = version;
         updated = true;
@@ -43,7 +43,7 @@ function doRoll(version) {
 
 let version = process.argv[2];
 if (!version) {
-  version = execSync('npm info playwright@next version', { encoding: 'utf-8' }).trim();
+  version = execSync('npm info @lamgc/playwright@next version', { encoding: 'utf-8' }).trim();
   console.log(`Using next playwright version: ${version}`);
 }
 doRoll(version);

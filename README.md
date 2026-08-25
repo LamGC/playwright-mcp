@@ -1420,6 +1420,14 @@ http.createServer(async (req, res) => {
 
 <!-- NOTE: This has been generated via update-readme.js -->
 
+- **browser_start_recording**
+  - Title: Start recording user actions
+  - Description: Start recording actions that the user performs in the browser as Playwright code. Use it when the user wants to demonstrate a flow manually. Call browser_stop_recording when the user says they are done to retrieve the recorded actions.
+  - Parameters: None
+  - Read-only: **true**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
 - **browser_start_tracing**
   - Title: Start tracing
   - Description: Start trace recording
@@ -1434,6 +1442,14 @@ http.createServer(async (req, res) => {
   - Parameters:
     - `filename` (string, optional): Filename to save the video.
     - `size` (object, optional): Video size
+  - Read-only: **true**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_stop_recording**
+  - Title: Stop recording user actions
+  - Description: Stop the recording started with browser_start_recording and return the recorded actions as Playwright code.
+  - Parameters: None
   - Read-only: **true**
 
 <!-- NOTE: This has been generated via update-readme.js -->
@@ -1619,6 +1635,43 @@ http.createServer(async (req, res) => {
     - `element` (string): Human-readable element description
     - `target` (string): Exact target element reference from the page snapshot
     - `value` (string): Value to verify. For checkbox, use "true" or "false".
+  - Read-only: **false**
+
+</details>
+
+<details>
+<summary><b>Dynamic CDP connections (opt-in via --caps=cdp)</b></summary>
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_cdp_connect**
+  - Title: Connect over CDP
+  - Description: Connect to a Chromium browser through an HTTP or WebSocket CDP endpoint and make it the active browser session.
+  - Parameters:
+    - `endpoint` (string): HTTP(S) or WebSocket CDP endpoint.
+    - `mode` (string, optional): Use the existing browser profile, or create an isolated browser context.
+    - `headers` (object, optional): Optional headers to send while connecting. Headers are never returned.
+    - `timeout` (number, optional): Connection timeout in milliseconds. Pass 0 to disable the timeout.
+    - `name` (string, optional): Optional name for this connection.
+  - Read-only: **false**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_cdp_connections**
+  - Title: Manage CDP connections
+  - Description: List dynamic CDP connections or select one as the active browser session.
+  - Parameters:
+    - `action` (string): undefined
+    - `connectionId` (string, optional): undefined
+  - Read-only: **false**
+
+<!-- NOTE: This has been generated via update-readme.js -->
+
+- **browser_cdp_disconnect**
+  - Title: Disconnect CDP
+  - Description: Disconnect a dynamic CDP connection without closing the remote browser.
+  - Parameters:
+    - `connectionId` (string, optional): Connection to disconnect. Defaults to the active dynamic connection.
   - Read-only: **false**
 
 </details>

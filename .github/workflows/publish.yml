@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: SemVer version to publish (for example 0.0.80)
+        description: Version already committed in package.json and server.json (for example 0.0.81)
         required: true
       tag:
         description: npm dist-tag
@@ -27,12 +27,19 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install --global npm@latest
       - run: npm ci
-      - name: Set release version
+      - name: Verify release metadata
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
         run: |
-          if [ "$(node -p "require('./package.json').version")" != "${{ inputs.version }}" ]; then
-            npm version ${{ inputs.version }} --no-git-tag-version
+          node -e "const pkg=require('./package.json'); const server=require('./server.json'); const expected=process.env.REQUESTED_VERSION; const versions=[pkg.version, server.version, ...server.packages.map(p => p.version)]; if (versions.some(version => version !== expected)) { console.error({ expected, versions }); process.exit(1); }"
+      - name: Ensure npm version is unpublished
+        env:
+          REQUESTED_VERSION: ${{ inputs.version }}
+        run: |
+          if npm view "@lamgc/playwright-mcp@$REQUESTED_VERSION" version >/dev/null 2>&1; then
+            echo "Version $REQUESTED_VERSION already exists on npm."
+            exit 1
           fi
-          node -e "const fs=require('fs'); const server=require('./server.json'); server.version=require('./package.json').version; server.packages.forEach(p => p.version=server.version); fs.writeFileSync('server.json', JSON.stringify(server, null, 2) + '\n');"
       - run: npm run lint
       - run: npm run ctest
       - run: npm publish --access public --tag ${{ inputs.tag }}

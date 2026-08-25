@@ -36,8 +36,8 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
-    - name: Playwright install
-      run: npx playwright install --with-deps
+    - name: Install LamGC Playwright browsers
+      run: ./node_modules/.bin/playwright-core install --with-deps
     - name: Build
       run: npm run build
     - name: Run playwright-mcp tests
@@ -54,8 +54,8 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm ci
-    - name: Playwright install
-      run: npx playwright install --with-deps chromium
+    - name: Install LamGC Playwright Chromium
+      run: ./node_modules/.bin/playwright-core install --with-deps chromium
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
     - name: Build and push
